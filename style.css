@@ -27,7 +27,7 @@ p {
 }
 
 button {
-    height: 50px;
+    height: 60px;
     width: auto;
 }
 
@@ -36,8 +36,8 @@ button {
 }
 
 #main {
-    min-width: 500px;
-    max-width: 700px;
+    min-width: 300px;
+    max-width: 500px;
     margin: 2em auto;
     padding: 1em;
 }
@@ -45,6 +45,9 @@ button {
 #display {
     height: 4em;
     margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #button-container {
@@ -68,7 +71,6 @@ button {
     margin-left: 4px;
     display: grid;
     grid-area: operator;
-    grid-template-rows: repeat(4, 1fr);
     grid-gap: 5px;
     
 }

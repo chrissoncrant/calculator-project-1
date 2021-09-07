@@ -11,31 +11,34 @@
     </head>
     <body>
         <div id="main" class = "bd">
-            <div id="display" class = "bd"></div>
+            <div id="display" class = "bd">
+                <div id="display-content">HELLO</div>
+            </div>
             <div id="button-container" class = "bd">
                 <div class="numbers-div">
-                    <button class="number-buttons">7</button>
-                    <button class="number-buttons">8</button>
-                    <button class="number-buttons">9</button>
-                    <button class="number-buttons">4</button>
-                    <button class="number-buttons">5</button>
-                    <button class="number-buttons">6</button>
-                    <button class="number-buttons">1</button>
-                    <button class="number-buttons">2</button>
-                    <button class="number-buttons">3</button>
-                    <button class="number-buttons">0</button>
-                    <button class="number-buttons">.</button>
-                    <button class="number-buttons">( - )</button>
+                    <button type="button" value="7" class="operand" data-key="55">7</button>
+                    <button type="button" value="8" class="operand" data-key="56">8</button>
+                    <button type="button" value="9" class="operand" data-key="57">9</button>
+                    <button type="button" value="4" class="operand" data-key="52">4</button>
+                    <button type="button" value="5" class="operand" data-key="53">5</button>
+                    <button type="button" value="6" class="operand" data-key="54">6</button>
+                    <button type="button" value="1" class="operand" data-key="49">1</button>
+                    <button type="button" value="2" class="operand" data-key="50">2</button>
+                    <button type="button" value="3" class="operand" data-key="51">3</button>
+                    <button type="button" value="0" class="operand" data-key="48">0</button>
+                    <button type="button" value="." class="condition" data-key="190">.</button>
+                    <button type="button" value="sign" class="condition" data-key="189">+ / -</button>
                 </div>
                 <div class="operators-div">
-                    <button class="operator-buttons">+</button>
-                    <button class="operator-buttons">-</button>
-                    <button class="operator-buttons">x</button>
-                    <button class="operator-buttons">&#xf7;</button>
+                    <!-- a = add; s = subtract; m = multiply; / = divide; c = clear -->
+                    <button type="button" value="+" class="operator" data-key="65">+</button>
+                    <button type="button" value="-" class="operator" data-key="83">-</button>
+                    <button type="button" value="*" class="operator" data-key="77">x</button>
+                    <button yo="arabian" type="button" value="/" class="operator" data-key="191">&#xf7;</button>
                 </div>
                 <div class="enter-div">
-                    <button class="enter-buttons">Clear</button>
-                    <button class="enter-buttons">Enter</button>
+                    <button type="button" value="clear" id="clear" class="enter-buttons" data-key="67">Clear</button>
+                    <button type="button" value="enter" id="enter" class="enter-buttons" data-key="187">Enter</button>
                 </div>
             </div>
         </div>
