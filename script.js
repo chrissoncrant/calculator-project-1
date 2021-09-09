@@ -74,19 +74,22 @@ updateDisplay();
 
 let operandCheck = 0;
 
+function testDisplay() {
+    console.log("=========================");
+    console.log("first operator: " + firstOperator);
+    console.log("first operand: " + firstOperand);
+    console.log("second operator: " + secondOperator);
+    console.log("second operand: " + secondOperand);
+    console.log("operand check: " + operandCheck);
+}
+
 function clickButton() {
     buttons.forEach((button) => {
         
         button.addEventListener('click', () => {
             
-            //Operand Buttons
+            //Operand Buttons:
             if (button.classList.contains("operand")) {
-                // console.log("=========================")
-                // console.log("first operator: " + firstOperator);
-                // console.log("first operand: " + firstOperand);
-                // console.log("second operator: " + secondOperator);
-                // console.log("second operand: " + secondOperand);
-                // console.log("operand check: " + operandCheck);
                 if (firstOperator === null) {
                     if (displayValue == 0) {
                         displayValue = button.value;
@@ -104,12 +107,16 @@ function clickButton() {
 
             //Operator Buttons:
             if (button.classList.contains("operator")) {
+                // testDisplay();
                 if (firstOperator === null) {
                     firstOperand = displayValue;
                     firstOperator = button.value;
-                } else if (firstOperator != null && secondOperator === null && secondOperand != null) {
-                    secondOperator = button.value;
-                } else if (firstOperator != null && secondOperator === null && secondOperand === null) {
+                } else if (firstOperand === null) {
+                    firstOperator = button.value;
+                    firstOperand = displayValue;
+                    secondOperand = null;
+                    operandCheck = 0;
+                } else {
                     // secondOperator = button.value;
                     secondOperand = displayValue;
                     displayValue = operate(firstOperator, firstOperand, secondOperand);
@@ -118,34 +125,28 @@ function clickButton() {
                     secondOperand = null;
                     operandCheck = 0;
                     return updateDisplay();
-    
                 }
 
             }
 
             //Enter Button:
             if (button.id === "enter") {
-                if (firstOperand != null && secondOperand != null && secondOperator === null) {
-                    displayValue = operate(firstOperator, firstOperand, secondOperand);
-                    firstOperand = displayValue;
+                if (firstOperand === null && firstOperator === null) {
                     return updateDisplay();
-                }
-                if (firstOperator != null && secondOperator === null) {
+                } else if (secondOperand === null) {
                     secondOperand = displayValue;
+                    // testDisplay();
                     displayValue = operate(firstOperator, firstOperand, secondOperand);
-                    firstOperand = displayValue;
                     operandCheck = 0;
+                    firstOperand = null;
                     return updateDisplay();
-                } else {
-                    secondOperand = displayValue;
-                    displayValue = operate(secondOperator, firstOperand, secondOperand);
+                } else if (firstOperand === null) {
                     firstOperand = displayValue;
-                    firstOperator = secondOperator;
-                    secondOperator = null;
+                    displayValue = operate(firstOperator, firstOperand, secondOperand);
                     operandCheck = 0;
+                    firstOperand = null;
                     return updateDisplay();
-                }
-                
+                }                
             }
 
             //Clear Button:
