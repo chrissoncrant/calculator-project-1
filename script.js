@@ -73,6 +73,7 @@ function updateDisplay() {
 updateDisplay();
 
 let operandCheck = 0;
+let operatorCheck = 0;
 
 function testDisplay() {
     console.log("=========================");
@@ -99,6 +100,7 @@ function clickButton() {
                 } else if (operandCheck === 0) {
                         operandCheck = 1;
                         displayValue = button.value;
+                        operatorCheck = 0;
                     } else {
                         displayValue += button.value;
                     }
@@ -107,15 +109,21 @@ function clickButton() {
 
             //Operator Buttons:
             if (button.classList.contains("operator")) {
-                // testDisplay();
-                if (firstOperator === null) {
+                
+                if (operatorCheck === 1){
                     firstOperand = displayValue;
                     firstOperator = button.value;
+                    operatorCheck = 1;
+                } else if (firstOperator === null) {
+                    firstOperand = displayValue;
+                    firstOperator = button.value;
+                    operatorCheck = 1;
                 } else if (firstOperand === null) {
                     firstOperator = button.value;
                     firstOperand = displayValue;
                     secondOperand = null;
                     operandCheck = 0;
+                    operatorCheck = 1;
                 } else {
                     // secondOperator = button.value;
                     secondOperand = displayValue;
@@ -124,6 +132,7 @@ function clickButton() {
                     firstOperand = displayValue;
                     secondOperand = null;
                     operandCheck = 0;
+                    operatorCheck = 1;
                     return updateDisplay();
                 }
 
@@ -131,6 +140,7 @@ function clickButton() {
 
             //Enter Button:
             if (button.id === "enter") {
+                operatorCheck = 0;
                 if (firstOperand === null && firstOperator === null) {
                     return updateDisplay();
                 } else if (secondOperand === null) {
