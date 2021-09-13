@@ -63,9 +63,9 @@ window.addEventListener('keydown', (e) => {
 })
 
 function updateDisplay() {
-    console.log("+++++++++++++++");
-    console.log("Display value: " + displayValue);
-    console.log(typeof displayValue);
+    // console.log("+++++++++++++++");
+    // console.log("Display value: " + displayValue);
+    // console.log(typeof displayValue);
     const display = document.querySelector("#display-content");
     displayValue = displayValue.toString();
     display.textContent = displayValue;
@@ -79,6 +79,7 @@ updateDisplay();
 let operandCheck = 0;
 let operatorCheck = 0;
 let decimalCheck = 0;
+let signCheck = 0;
 
 function testDisplay() {
     console.log("=========================");
@@ -98,7 +99,8 @@ function clearDisplay() {
     secondOperator = null;
     operandCheck = 0;
     decimalCheck = 0;
-    operatorCheck = 0;   
+    operatorCheck = 0;
+    signCheck = 0;   
     return updateDisplay();
 }
 
@@ -113,18 +115,44 @@ function clickButton() {
                 if (firstOperator === null) {
                     if (displayValue === "0") {
                         displayValue = button.value;
+                    } else if (displayValue === "-0") {
+                        displayValue = "-" + button.value;
                     } else {
                         displayValue += button.value
                     };
                 } else if (operandCheck === 0) {
-                        operandCheck = 1;
-                        decimalCheck = 1;
+                    signCheck = 0;
+                    if (displayValue === "-0") {
+                        displayValue = "-" + button.value;
+                    } else {
                         displayValue = button.value;
-                        operatorCheck = 0;
+                    }   
+                    operandCheck = 1;
+                    decimalCheck = 1;
+                    operatorCheck = 0;
                     } else {
                         displayValue += button.value;
                     }
                 return updateDisplay();
+            };
+
+            //Sign Button:
+            if (button.classList.contains("sign")) {
+                console.log("yes");
+                if (signCheck === 1) {
+                    console.log("yes3");
+                    displayValue = "-0";
+                    signCheck = 0;
+                    return updateDisplay();
+                }
+                if (displayValue.includes("-")) {
+                    displayValue = displayValue.replace("-", "");
+                    return updateDisplay();
+                } else {
+                    console.log("yes2");
+                    displayValue = "-" + displayValue;
+                    return updateDisplay();
+                }
             }
 
             //Decimal Button:
@@ -151,20 +179,20 @@ function clickButton() {
                     } else {
                         displayValue += button.value;
                         return updateDisplay();
-                    }
-                }  
-            }
+                    };
+                };  
+            };
 
             //Operator Buttons:
             if (button.classList.contains("operator")) {
+                signCheck = 1;
                 if (firstOperator === "/" && displayValue == 0) {
                     displayValue = "Can't divide by zero!";
                     updateDisplay();
-                    // return clearDisplay();
                     return setTimeout(() => {
                         return clearDisplay();
-                    }, 1500)
-                }
+                    }, 1500);
+                };
                 if (operatorCheck === 1) {
                     console.log("here1");
                     firstOperand = displayValue;
@@ -197,21 +225,20 @@ function clickButton() {
                     operatorCheck = 1;
                     decimalCheck = 0;
                     return updateDisplay();
-                }
-
-            }
+                };
+            };
 
             //Enter Button:
             if (button.id === "enter") {
                 operatorCheck = 0;
                 decimalCheck = 0;
+                signCheck = 1;
                 if (firstOperator === "/" && displayValue == 0) {
                     displayValue = "Can't divide by zero!";
                     updateDisplay();
-                    // return clearDisplay();
                     return setTimeout(() => {
                         return clearDisplay();
-                    }, 1500)
+                    }, 1500);
                 };
                 if (firstOperand === null && firstOperator === null) {
                     return updateDisplay();
@@ -232,18 +259,9 @@ function clickButton() {
             }
 
             //Clear Button:
-            if (button.id === "clear") {
-                displayValue = "0";
-                firstOperand = null;
-                secondOperand = null;
-                firstOperator = null;
-                secondOperator = null;
-                operandCheck = 0;
-                decimalCheck = 0;
-                operatorCheck = 0;   
-                return updateDisplay();
+            if (button.id === "clear") {  
+                return clearDisplay();
             };
-
         })
     })
 }
