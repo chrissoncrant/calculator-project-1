@@ -31,8 +31,18 @@ button {
     width: auto;
 }
 
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
 .bd {
     border: 1px solid black;
+}
+
+.br {
+    border-radius: 10px;
 }
 
 #main {
@@ -72,7 +82,20 @@ button {
     display: grid;
     grid-area: operator;
     grid-gap: 5px;
-    
+}
+
+.operator {
+    background-color: rgb(172, 161, 161);
+    font-size: 18px;
+    border-radius: 3px;
+}
+
+.operator:hover {
+    background-color: lightgrey;
+}
+
+.operator:visited {
+    background-color: olive;
 }
 
 .enter-div {
@@ -81,6 +104,16 @@ button {
     grid-area: enter;
     grid-template-columns: 1fr 1fr;
     grid-gap: 5px;
+}
+
+.keyboard-legend {
+    text-align: center;
+    width: 30%;
+    margin: auto;
+}
+
+.keyboard-legend p {
+    font-weight: bold;
 }
 
 

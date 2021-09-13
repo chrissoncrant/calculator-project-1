@@ -58,6 +58,7 @@ const clear = document.querySelector("#clear");
 
 // sets the corresponding key presses to perform the click operation:
 window.addEventListener('keydown', (e) => {
+    console.log(e.keyCode);
     let key = document.querySelector(`button[data-key="${e.keyCode}"]`);
     key.click();
 })
@@ -104,14 +105,15 @@ function clearDisplay() {
     return updateDisplay();
 }
 
+
 function clickButton() {
     buttons.forEach((button) => {
-        
         button.addEventListener('click', () => {
             
             //Operand Buttons:
             if (button.classList.contains("operand")) {
                 // testDisplay();
+                document.querySelector("#clear").textContent = "Clear";
                 if (firstOperator === null) {
                     if (displayValue === "0") {
                         displayValue = button.value;
@@ -138,7 +140,6 @@ function clickButton() {
 
             //Sign Button:
             if (button.classList.contains("sign")) {
-                console.log("yes");
                 if (signCheck === 1) {
                     console.log("yes3");
                     displayValue = "-0";
@@ -159,7 +160,6 @@ function clickButton() {
             if (button.classList.contains("decimal")) {
                 if ((firstOperand != null || secondOperand != null) && (firstOperand === null || secondOperand === null)) {
                     if (decimalCheck === 0) {
-                        console.log("check1");
                         displayValue = "0" + button.value;
                         operandCheck = 1;
                         operatorCheck = 0;
@@ -169,7 +169,6 @@ function clickButton() {
                         if (displayValue.includes(".")) {
                             return updateDisplay();
                         };
-                        console.log("check2");
                         displayValue += button.value;
                         return updateDisplay();
                     }
@@ -194,19 +193,16 @@ function clickButton() {
                     }, 1500);
                 };
                 if (operatorCheck === 1) {
-                    console.log("here1");
                     firstOperand = displayValue;
                     firstOperator = button.value;
                     operatorCheck = 1;
                     decimalCheck = 0;
                 } else if (firstOperator === null) {
-                    console.log("here2")
                     firstOperand = displayValue;
                     firstOperator = button.value;
                     operatorCheck = 1;
                     decimalCheck = 0;
                 } else if (firstOperand === null) {
-                    console.log("here3");
                     firstOperator = button.value;
                     firstOperand = displayValue;
                     secondOperand = null;
@@ -214,8 +210,6 @@ function clickButton() {
                     operatorCheck = 1;
                     decimalCheck = 0;
                 } else {
-                    // secondOperator = button.value;
-                    console.log("here4");
                     secondOperand = displayValue;
                     displayValue = operate(firstOperator, firstOperand, secondOperand);
                     firstOperator = button.value;
@@ -259,8 +253,15 @@ function clickButton() {
             }
 
             //Clear Button:
-            if (button.id === "clear") {  
-                return clearDisplay();
+            if (button.id === "clear") {
+                if (button.textContent === "Clear") {
+                    displayValue = 0;
+                    button.textContent = "Clear All";
+                    operandCheck = 0;
+                    return updateDisplay();
+                } else {
+                    return clearDisplay();
+                }
             };
         })
     })
