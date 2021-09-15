@@ -8,6 +8,7 @@ body {
     margin: 0;
     line-height: 1.6;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color:#1b1b1b;
 }
 
 img {
@@ -38,7 +39,8 @@ ul {
 }
 
 .bd {
-    border: 1px solid black;
+    border: 1px solid #FBFBF9;
+
 }
 
 .br {
@@ -47,6 +49,8 @@ ul {
 
 .main {
     margin-top: 2em;
+    color: #FBFBF9
+
 }
 
 #calculator-body {
@@ -82,6 +86,12 @@ ul {
     grid-gap: 5px;
 }
 
+.numbers-div button {
+    background-color: rgb(107, 224, 132);
+    border-color:rgb(32, 178, 88);
+    border-radius: 3px;
+}
+
 .operators-div {
     margin-left: 4px;
     display: grid;
@@ -89,16 +99,10 @@ ul {
     grid-gap: 5px;
 }
 
-.operator {
-    background-color: rgb(172, 161, 161);
-    font-size: 18px;
-    border-radius: 3px;
+.operators-div button {
+    background-color: rgb(32, 178, 88);
+    border-color: darkgreen;
 }
-
-.operator:hover {
-    background-color: lightgrey;
-}
-
 
 .enter-div {
     margin-top: 5px;
@@ -106,6 +110,11 @@ ul {
     grid-area: enter;
     grid-template-columns: 1fr 1fr;
     grid-gap: 5px;
+}
+
+.enter-div button {
+    background-color: darkgreen;
+    border-color: rgb(32, 178, 88) rgb(32, 178, 88) rgb(32, 178, 88) rgb(32, 178, 88);
 }
 
 ul {
