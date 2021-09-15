@@ -10,48 +10,53 @@
         <link href="style.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <div id="main" class = "bd br">
-            <div id="display" class = "bd br">
-                <div id="display-content">0</div>
+        <div class="main">
+            <div class="keyboard-legend bd br">
+                <p>Keyboard Functionality:</p>
+                <ul>
+                    <li>p = plus</li>
+                    <li>m = minus</li>
+                    <li>t = times/multiply</li>
+                    <li>d = divide</li>
+                    <li>. = decimal</li>
+                    <li>- = sign</li>
+                    <li>e = equals</li>
+                    <li>c = clear</li>
+                </ul>
             </div>
-            <div id="button-container" class = "bd br">
-                <div class="numbers-div br">
-                    <button type="button" value="7" class="operand" data-key="55">7</button>
-                    <button type="button" value="8" class="operand" data-key="56">8</button>
-                    <button type="button" value="9" class="operand" data-key="57">9</button>
-                    <button type="button" value="4" class="operand" data-key="52">4</button>
-                    <button type="button" value="5" class="operand" data-key="53">5</button>
-                    <button type="button" value="6" class="operand" data-key="54">6</button>
-                    <button type="button" value="1" class="operand" data-key="49">1</button>
-                    <button type="button" value="2" class="operand" data-key="50">2</button>
-                    <button type="button" value="3" class="operand" data-key="51">3</button>
-                    <button type="button" value="0" class="operand" data-key="48">0</button>
-                    <button type="button" value="." class="decimal" data-key="190">.</button>
-                    <button type="button" value="sign" class="sign" data-key="189">+ / -</button>
+            <div id="calculator-body" class = "bd br">
+                <div id="display" class = "bd br">
+                    <div id="display-content">0</div>
                 </div>
-                <div class="operators-div">
-                    <!-- a = add; s = subtract; m = multiply; / = divide; c = clear -->
-                    <button type="button" value="+" class="operator" data-key="80">+</button>
-                    <button type="button" value="-" class="operator" data-key="77">-</button>
-                    <button type="button" value="*" class="operator" data-key="84">x</button>
-                    <button type="button" value="/" class="operator" data-key="68">&#xf7;</button>
-                </div>
-                <div class="enter-div">
-                    <button type="button" value="clear" id="clear" class="enter-buttons" data-key="67">Clear All</button>
-                    <button type="button" value="enter" id="enter" class="enter-buttons" data-key="69">Enter</button>
+                <div id="button-container" class = "bd br">
+                    <div class="numbers-div br">
+                        <button type="button" value="7" class="operand" data-key="55">7</button>
+                        <button type="button" value="8" class="operand" data-key="56">8</button>
+                        <button type="button" value="9" class="operand" data-key="57">9</button>
+                        <button type="button" value="4" class="operand" data-key="52">4</button>
+                        <button type="button" value="5" class="operand" data-key="53">5</button>
+                        <button type="button" value="6" class="operand" data-key="54">6</button>
+                        <button type="button" value="1" class="operand" data-key="49">1</button>
+                        <button type="button" value="2" class="operand" data-key="50">2</button>
+                        <button type="button" value="3" class="operand" data-key="51">3</button>
+                        <button type="button" value="0" class="operand" data-key="48">0</button>
+                        <button type="button" value="." class="decimal" data-key="190">.</button>
+                        <button type="button" value="sign" class="sign" data-key="189">+ / -</button>
+                    </div>
+                    <div class="operators-div">
+                        <!-- a = add; s = subtract; m = multiply; / = divide; c = clear -->
+                        <button type="button" value="+" class="operator" data-key="80">+</button>
+                        <button type="button" value="-" class="operator" data-key="77">-</button>
+                        <button type="button" value="*" class="operator" data-key="84">x</button>
+                        <button type="button" value="/" class="operator" data-key="68">&#xf7;</button>
+                    </div>
+                    <div class="enter-div">
+                        <button type="button" value="clear" id="clear" class="enter-buttons" data-key="67">Clear All</button>
+                        <button type="button" value="enter" id="enter" class="enter-buttons" data-key="69">Enter</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="keyboard-legend bd">
-            <p>Keyboard Functionality:</p>
-            <ul>
-                <li>p = plus</li>
-                <li>m = minus</li>
-                <li>t = times/multiply</li>
-                <li>d = divide</li>
-                <li>e = equals</li>
-                <li>c = clear</li>
-            </ul>
+            
         </div>
 
         <script src="script.js"></script>
