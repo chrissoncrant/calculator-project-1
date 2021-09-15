@@ -50,18 +50,19 @@ ul {
 }
 
 #calculator-body {
-    min-width: 300px;
-    max-width: 400px;
+    min-width: 200px;
+    max-width: 350px;
     margin: 2em auto;
-    padding: 1em;
+    padding: 0.75em;
 }
 
 #display {
     height: 4em;
     margin-bottom: 5px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+    padding: 0 3em;
 }
 
 #button-container {
@@ -98,9 +99,6 @@ ul {
     background-color: lightgrey;
 }
 
-.operator:visited {
-    background-color: olive;
-}
 
 .enter-div {
     margin-top: 5px;
@@ -110,17 +108,26 @@ ul {
     grid-gap: 5px;
 }
 
+ul {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(50px, 1fr));
+    text-align: left;
+
+}
+
 .keyboard-legend {
     text-align: center;
-    min-width: 300px;
-    max-width: 400px;
+    min-width: 200px;
+    max-width: 350px;
     margin: auto;
     padding: 0.5em;
+    font-size: 0.75em;
 }
 
 .keyboard-legend p {
     font-weight: bold;
     text-decoration: underline;
+    margin-bottom: 1em;
 }
 
 
